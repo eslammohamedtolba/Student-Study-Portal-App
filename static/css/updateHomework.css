@@ -14,12 +14,18 @@ body {
 }
 
 .form-container label {
-    display: block;
+    margin-bottom: 10px;
+}
+.inline-label {
+    display: inline-block;
+    margin-right: 5px;
+}
+.custom-textarea {
     margin-bottom: 10px;
 }
 
-.custom-textarea {
-    margin-bottom: 20px;
+.complete {
+    margin-bottom: 15px;
 }
 
 .form-container input[type="text"],

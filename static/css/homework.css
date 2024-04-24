@@ -74,8 +74,17 @@
     justify-content: space-between;
 }
 
-.homework .title {
-    font-weight: bold;
+.homework-completed, 
+.homework-not-completed {
+    width: 80%;
+    font-size: 20px;
+}
+.homework-completed {
+    text-decoration: line-through;
+    color: #888;
+}
+.homework-not-completed {
+    color: #333;
 }
 
 .homeUpdate,

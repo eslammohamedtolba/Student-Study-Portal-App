@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Task</title>
+    <title>Update Homework</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/updateHomework.css' %}">
 </head>
@@ -16,6 +16,8 @@
         <input id="upsubject" type="text" name="new_subject" value="{{ homework.subject }}" required>
         <label for="updescription">Write new description</label>
         <textarea class="custom-textarea" id="updescription" name="description" rows="4" cols="50">{{homework.description}}</textarea><br>
+        <label for="complete" class="inline-label">Mark as complete</label>
+        <input id="complete" type="checkbox" name="complete" {% if homework.finished %} checked {% endif %}>
         <input type="submit" value="Update">
     </form>
 </body>

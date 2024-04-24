@@ -71,8 +71,17 @@
     justify-content: space-between;
 }
 
-.task .title {
-    font-weight: bold;
+.task-completed, 
+.task-not-completed {
+    width: 80%;
+    font-size: 20px;
+}
+.task-completed {
+    text-decoration: line-through;
+    color: #888;
+}
+.task-not-completed {
+    color: #333;
 }
 
 .taskUpdate,

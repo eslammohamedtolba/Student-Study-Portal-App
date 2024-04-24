@@ -20,7 +20,11 @@
             <p>All your tasks</p>
             {% for task in tasks %}
                 <div class="task">
-                    <span class="title">{{task.title}}</span>
+                    {% if task.finished %}
+                        <span class="task-completed">{{task.title}}</span>
+                    {% else %}
+                        <span class="task-not-completed">{{task.title}}</span>
+                    {% endif %}
                     <span>
                         <a class="taskUpdate" href="{% url 'update_Todo' task.id %}">Update</a>
                         <a class="taskDelete" href="{% url 'delete_Todo' task.id %}">Delete</a>

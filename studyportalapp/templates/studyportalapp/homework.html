@@ -26,7 +26,11 @@
             <p>All your homework</p>
             {% for hw in homework %}
                 <div class="homework">
-                    <span class="titel">{{hw.subject}} {{hw.title}}</span>
+                    {% if hw.finished %}
+                        <span class="homework-completed">{{hw.title}}</span>
+                    {% else %}
+                        <span class="homework-not-completed">{{hw.title}}</span>
+                    {% endif %}
                     <span>
                         <a class="homeUpdate" href="{% url 'update_Homework' hw.id %}">Update</a>
                         <a class="homeDelete"  href="{% url 'delete_Homework' hw.id %}">Delete</a>

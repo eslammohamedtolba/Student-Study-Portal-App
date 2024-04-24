@@ -108,6 +108,7 @@ def updateHomework(request, pk):
         homework.title = request.POST.get('new_title')
         homework.subject = request.POST.get('new_subject')
         homework.description = request.POST.get('description')
+        homework.finished = (request.POST.get('complete') == 'on')
         homework.save()
         return redirect('homework')  # Redirect to the task list page
     return render(request, 'studyportalapp/updateHomework.html', {'homework': homework})
