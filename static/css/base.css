@@ -1,0 +1,45 @@
+/* Navbar container */
+* {
+    padding: 0;
+    margin: 0;
+}
+.navbar {
+    background-color: #333;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+  /* Navbar links */
+.navbar .homenav,
+.navbar .logout  {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+  /* Active link */
+.navbar .homenav.active,
+.navbar .logout.active {
+    background-color: #4CAF50;
+}
+  /* Hover effect */
+.navbar .homenav:hover,
+.navbar .logout:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+  /* Logo */
+.navbar .message {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}

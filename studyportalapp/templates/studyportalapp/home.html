@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Portal</title>
+    {% extends 'base.html' %}
+    {% load static %}
+</head>
+<body>
+    {% block basecontent %}
+    <link rel="stylesheet" href="{% static 'css\home.css' %}">
+    <div class="container">
+        <h1 class="welcomepage">Welcome {{username}}!</h1>
+        <div class="pages">
+            <a class="page" href="{% url 'notes' %}">
+                <img class="studyimg" src="{% static 'images/notes.jpg' %}" alt="">
+                <div class="description">
+                    <h2 class="studytype">Notes</h2>
+                    <p class="studydef">
+                        Create notes to refer them later. They are stored permanently until deleted
+                    </p>
+                </div>
+            </a>
+            <a class="page" href="{% url 'homework' %}">
+                <img class="studyimg" src="{% static 'images/homework.jpg' %}" alt="">
+                <div class="description">
+                    <h2 class="studytype">Homework</h2>
+                    <p class="studydef">
+                        Add homeworks and assign them deadlines. They will be displayed prioritised by deadlines 
+                    </p>
+                </div>
+            </a>
+            <a class="page" href="{% url 'youtube' %}">
+                <img class="studyimg" src="{% static 'images/youtube.jpg' %}" alt="">
+                <div class="description">
+                    <h2 class="studytype">Youtube</h2>
+                    <p class="studydef">
+                        Search Youtube and select your desired video to play it on youtube
+                    </p>
+                </div>
+            </a>
+            <a class="page" href="{% url 'todo' %}">
+                <img class="studyimg" src="{% static 'images/todo.jpg' %}" alt="">
+                <div class="description">
+                    <h2 class="studytype">To Do</h2>
+                    <p class="studydef">
+                        Add your to-do lists for your day and remove them as you finish 
+                    </p>
+                </div>
+            </a>
+            <a class="page" href="{% url 'books' %}">
+                <img class="studyimg" src="{% static 'images/books.jpg' %}" alt="">
+                <div class="description">
+                    <h2 class="studytype">Books</h2>
+                    <p class="studydef">
+                        Browse books from a list of organized book menue
+                    </p>
+                </div>
+            </a>
+            <a class="page" href="{% url 'dictionary' %}">
+                <img class="studyimg" src="{% static 'images/dictionary.jpg' %}" alt="">
+                <div class="description">
+                    <h2 class="studytype">Dictionary</h2>
+                    <p class="studydef">
+                        A vocabulary from a book is troubling you? No problem enter the word and 
+                        the meaning will be displayed 
+                    </p>
+                </div>
+            </a>
+            <a class="page" href="{% url 'wiki' %}">
+                <img class="studyimg" src="{% static 'images/wiki.jpg' %}" alt="">
+                <div class="description">
+                    <h2 class="studytype">WiKiPedia</h2>
+                    <p class="studydef">
+                        Homework and assignments? Search wikipedia to get fast results
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endblock basecontent %}
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    {% extends 'base.html' %}
+    {% load static %}
+</head>
+<body>
+    {% block basecontent %}
+    <link rel="stylesheet" href="{% static 'css\dict.css' %}">
+    <div class="container">
+        <div class="search">
+            <p>Student dictionary</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="search">Enter your dictionary word</label>
+                <input id="search" type="text" name="search" required>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+        {% if input %}
+            <div class="result">
+                <h1>Dictionary Search Results</h1>
+                <div class="search-info">
+                    <p><strong>Input:</strong> {{ input }}</p>
+                    {% if phonetics %}
+                        <p><strong>Phonetics:</strong> {{ phonetics.0.text }}</p>
+                    {% endif %}
+                    {% if audio %}
+                        <audio controls>
+                            <source src="{{ audio }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    {% endif %}
+                    {% if definition %}
+                        <div class="definition">
+                            <h2>Definition:</h2>
+                            <p>{{ definition }}</p>
+                        </div>
+                    {% endif %}
+                    {% if example %}
+                        <div class="example">
+                            <h2>Example:</h2>
+                            <p>{{ example }}</p>
+                        </div>
+                    {% endif %}
+                    {% if synonyms %}
+                        <div class="synonyms">
+                            <h2>Synonyms:</h2>
+                            <ul>
+                                {% for synonym in synonyms %}
+                                    <li>{{ synonym }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div>No results found.</div>
+        {% endif %}
+    </div>
+    {% endblock basecontent %}
+</body>
+</html>

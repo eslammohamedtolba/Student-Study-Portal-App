@@ -1,0 +1,98 @@
+.container {
+    width: 80%;
+    margin: 100px auto 20px; /* Adjust the top margin to create space from the navbar */
+    padding: 20px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.create_notes {
+    padding: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.container form {
+    padding: 10px;
+}
+
+.container .header {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.container form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.container form input[type="text"] {
+    width: 98%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.all_notes {
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.all_notes p { 
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.note {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note .title {
+    font-weight: bold;
+}
+
+.noteUpdate,
+.noteDelete {
+    padding: 10px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.noteUpdate {
+    background-color: green;
+}
+.noteUpdate:hover {
+    background-color: rgb(6, 88, 6);
+}
+.noteDelete {
+    background-color: red;
+}
+.noteDelete:hover {
+    background-color: rgb(208, 1, 1);
+}

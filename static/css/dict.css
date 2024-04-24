@@ -1,0 +1,74 @@
+.container {
+    width: 80%;
+    margin: 20px auto; /* Center the container and add some spacing */
+    margin-top: 60px;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+.container .search {
+    margin-bottom: 30px; /* Add space below the form */
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 20px
+}
+.search p {
+    text-align: center;
+}
+.container form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.container form input[type="text"] {
+    width: 98%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.container form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.container form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+
+.result {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.result h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.result .search-info p {
+    margin-bottom: 10px;
+}
+.result .definition,
+.result .example,
+.result .synonyms {
+    margin-top: 20px;
+}
+.result .definition h2,
+.result .example h2,
+.result .synonyms h2 {
+    margin-bottom: 10px;
+}
+.result .synonyms ul {
+    list-style-type: none;
+    padding: 0;
+}
+.result .synonyms li {
+    margin-bottom: 5px;
+}

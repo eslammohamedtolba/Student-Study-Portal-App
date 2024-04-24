@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/updateHomework.css' %}">
+</head>
+<body>
+    <form action="" method="POST" class="form-container"> 
+        {% csrf_token %}
+        <label for="uptitle">Write new title</label>
+        <input id="uptitle" type="text" name="new_title" value="{{ homework.title }}" required>
+        <label for="upsubject">Write new subject</label>
+        <input id="upsubject" type="text" name="new_subject" value="{{ homework.subject }}" required>
+        <label for="updescription">Write new description</label>
+        <textarea class="custom-textarea" id="updescription" name="description" rows="4" cols="50">{{homework.description}}</textarea><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

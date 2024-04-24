@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css\updateTodo.css' %}">
+</head>
+<body>
+    <form action="" method="POST" class="form-container"> 
+        {% csrf_token %}
+        <label for="uptask">Write new title</label>
+        <input id="uptask" type="text" name="new_title" value="{{ task.title }}" required>
+        <label for="complete" class="inline-label">Mark as complete</label>
+        <input id="complete" type="checkbox" name="complete" {% if task.finished %} checked {% endif %}>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

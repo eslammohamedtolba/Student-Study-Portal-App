@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.delete-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.delete-container p {
+    margin-bottom: 15px;
+}
+
+.form-delete {
+    display: inline;
+}
+
+.confirm-btn {
+    background-color: red;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-btn:hover {
+    background-color: rgb(208, 1, 1);
+}
+
+.cancel-link {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.cancel-link:hover {
+    text-decoration: underline;
+}

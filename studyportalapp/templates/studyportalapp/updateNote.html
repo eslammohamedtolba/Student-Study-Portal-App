@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/updateNote.css' %}">
+</head>
+<body>
+    <form action="" method="POST" class="form-container"> 
+        {% csrf_token %}
+        <label for="upNote">Write new title</label>
+        <input id="upNote" type="text" name="new_title" value="{{ note.title }}" required>
+        <label for="description">Write new description</label>
+        <textarea class="custom-textarea" id="description" name="description" rows="4" cols="50">{{note.description}}</textarea><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+    {% extends 'base.html' %}
+    {% load static %}
+</head>
+<body>
+    {% block basecontent %}
+    <link rel="stylesheet" href="{% static 'css\homework.css' %}">
+    <div class="container">
+        <div class="create_homework">
+            <p>Create homework</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="subject">subject</label>
+                <input id="subject" type="text" name="subject" required>
+                <label for="title">title</label>
+                <input id="title" type="text" name="title" required><br>
+                <label for="desc">description</label>
+                <input id="desc" type="text" name="description" required>
+                <label for="created">date</label>
+                <input style="display: block;" id="created" type="date" name="date" required>
+                <label style="display: inline-block; margin: 10px 10px 10px 0;" for="complete">Check for complete</label>
+                <input id="complete" type="checkbox" name="completed"><br>
+                <input type="submit" value="Save">
+            </form>
+        </div>
+        {% if homework %}
+            <div class="all_homework">
+                <p>All your homework</p>
+                {% for hw in homework %}
+                    <div class="homework">
+                        <span class="titel">{{hw.subject}} {{hw.title}}</span>
+                        <span>
+                            <a class="homeUpdate" href="{% url 'update_Homework' hw.id %}">Update</a>
+                            <a class="homeDelete"  href="{% url 'delete_Homework' hw.id %}">Delete</a>
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    {% endblock basecontent %}
+</body>
+</html>
