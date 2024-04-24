@@ -1,53 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>
-    {% extends 'base.html' %}
-    {% load static %}
-</head>
-<body>
-    {% block basecontent %}
-    <link rel="stylesheet" href="{% static 'css\books.css' %}">
-    <div class="container">
-        <div class="search">
-            <p>Search for books</p>
-            <form action="" method="post">
-                {% csrf_token %}
-                <label for="search">Enter your Search</label>
-                <input id="search" type="text" name="search" required>
-                <input type="submit" value="Search">
-            </form>
-        </div>
-        {% if books %}
-            <div class="recommended_books">
-                <h1 class="header">Search Results for "{{ books.0.input }}"</h1> 
-                <div class="book-list">
-                    {% for book in books %}
-                        <a class="book-item" href="{{book.preview}}" target="_blank">
-                            <div class="thumbnail">
-                                <img src="{{ book.thumbnail }}" alt="{{ book.title }}">
-                            </div>
-                            <div class="book-details">
-                                <h2>name: {{ book.title }}</h2>
-                                <p>subtitel: {{ book.subtitle }}</p>
-                                {% if book.rating %}
-                                    <p>Rating: {{ book.rating }}</p>
-                                {% endif %}
-                                {% if book.count %}
-                                    <p>pages: {{ book.count }}</p>
-                                {% endif %}
-                                {% if book.categories %}
-                                    <p>category: {{ book.categories }}</p>
-                                {% endif %}
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endif %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Books {% endblock %}
+{% block basecontent %}
+<link rel="stylesheet" href="{% static 'css\books.css' %}">
+<div class="container">
+    <div class="search">
+        <p>Search for books</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="search">Enter your Search</label>
+            <input id="search" type="text" name="search" required>
+            <input type="submit" value="Search">
+        </form>
     </div>
-    {% endblock basecontent %}
-</body>
-</html>
+    {% if books %}
+        <div class="recommended_books">
+            <h1 class="header">Search Results for "{{ books.0.input }}"</h1> 
+            <div class="book-list">
+                {% for book in books %}
+                    <a class="book-item" href="{{book.preview}}" target="_blank">
+                        <div class="thumbnail">
+                            <img src="{{ book.thumbnail }}" alt="{{ book.title }}">
+                        </div>
+                        <div class="book-details">
+                            <h2>name: {{ book.title }}</h2>
+                            <p>subtitel: {{ book.subtitle }}</p>
+                            {% if book.rating %}
+                                <p>Rating: {{ book.rating }}</p>
+                            {% endif %}
+                            {% if book.count %}
+                                <p>pages: {{ book.count }}</p>
+                            {% endif %}
+                            {% if book.categories %}
+                                <p>category: {{ book.categories }}</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock basecontent %}

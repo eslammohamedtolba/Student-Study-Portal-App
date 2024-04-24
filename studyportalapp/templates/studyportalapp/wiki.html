@@ -1,34 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WikiPedia</title>
-    {% extends 'base.html' %}
-    {% load static %}
-</head>
-<body>
-    {% block basecontent %}
-    <link rel="stylesheet" href="{% static 'css\wiki.css' %}">
-    <div class="container">
-        <div class="search">
-            <p class="header">Search articles in wikipedia</p>
-            <form action="" method="post">
-                {% csrf_token %}
-                <label for="search">Enter your Search</label>
-                <input id="search" type="text" name="search" required>
-                <input type="submit" value="Search">
-            </form>
-        </div>
-        {% if title and title != "No results" %}
-            <a class="wikiresult" href="{{link}}" target="_blank">
-                <h1>About {{title}}</h1>
-                <p>{{details}}</p>
-            </a>
-        {% elif title == "No results" %}
-            <h1>No results</h1>
-        {% endif %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} WikiPedia {% endblock %}
+{% block basecontent %}
+<link rel="stylesheet" href="{% static 'css\wiki.css' %}">
+<div class="container">
+    <div class="search">
+        <p class="header">Search articles in wikipedia</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="search">Enter your Search</label>
+            <input id="search" type="text" name="search" required>
+            <input type="submit" value="Search">
+        </form>
     </div>
-    {% endblock basecontent %}
-</body>
-</html>
+    {% if title and title != "No results" %}
+        <a class="wikiresult" href="{{link}}" target="_blank">
+            <h1>About {{title}}</h1>
+            <p>{{details}}</p>
+        </a>
+    {% elif title == "No results" %}
+        <h1>No results</h1>
+    {% endif %}
+</div>
+{% endblock basecontent %}

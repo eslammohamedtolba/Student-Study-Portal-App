@@ -1,42 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do</title>
-    {% extends 'base.html' %}
-    {% load static %}
-</head>
-<body>
-    {% block basecontent %}
-    <link rel="stylesheet" href="{% static 'css\todo.css' %}">
-    <div class="container">
-        <div class="create_notes">
-            <p class="header">Create task</p>
-            <form action="" method="post">
-                {% csrf_token %}
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" required><br>
-                <label style="display: inline-block; margin: 10px 10px 10px 0;" for="completed">Check for complete</label>
-                <input type="checkbox" id="completed" name="completed"><br>
-                <input type="submit" value="Save">
-            </form>
-        </div>
-        {% if tasks %}
-            <div class="all_tasks">
-                <p>All your tasks</p>
-                {% for task in tasks %}
-                    <div class="task">
-                        <span class="title">{{task.title}}</span>
-                        <span>
-                            <a class="taskUpdate" href="{% url 'update_Todo' task.id %}">Update</a>
-                            <a class="taskDelete" href="{% url 'delete_Todo' task.id %}">Delete</a>
-                        </span>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} To Do {% endblock %}
+{% block basecontent %}
+<link rel="stylesheet" href="{% static 'css\todo.css' %}">
+<div class="container">
+    <div class="create_notes">
+        <p class="header">Create task</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required><br>
+            <label style="display: inline-block; margin: 10px 10px 10px 0;" for="completed">Check for complete</label>
+            <input type="checkbox" id="completed" name="completed"><br>
+            <input type="submit" value="Save">
+        </form>
     </div>
-    {% endblock basecontent %}
-</body>
-</html>
+    {% if tasks %}
+        <div class="all_tasks">
+            <p>All your tasks</p>
+            {% for task in tasks %}
+                <div class="task">
+                    <span class="title">{{task.title}}</span>
+                    <span>
+                        <a class="taskUpdate" href="{% url 'update_Todo' task.id %}">Update</a>
+                        <a class="taskDelete" href="{% url 'delete_Todo' task.id %}">Delete</a>
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock basecontent %}

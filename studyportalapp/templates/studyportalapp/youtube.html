@@ -1,45 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube</title>
-    {% extends 'base.html' %}
-    {% load static %}
-</head>
-<body>
-    {% block basecontent %}
-    <link rel="stylesheet" href="{% static 'css\youtube.css' %}">
-    <div class="container">
-        <form action="" method="post">
-            {% csrf_token %}
-            <label for="search">Enter your Search</label>
-            <input id="search" type="text" name="search" required>
-            <input type="submit" value="Search">
-        </form>
-        {% if videos %}
-            <div class="recommended_videos">
-                <h1 class="header">Search Results for "{{ videos.0.input }}"</h1> <!-- Display the search input -->
-                <div class="video-list">
-                    {% for video in videos %}
-                    <a href="{{video.link}}" class="video-item"  target="_blank">
-                        <div class="thumbnail">
-                            <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
-                        </div>
-                        <div class="video-details">
-                            <h2>{{ video.title }}</h2>
-                            <p>Duration: {{ video.duration }}</p>
-                            <p>Channel: {{ video.channel_name }}</p>
-                            <p>Views: {{ video.views }}</p>
-                            <p>Published Time: {{ video.time }}</p>
-                            <p>Description: {{ video.description }}</p>
-                        </div>
-                    </a>
-                    {% endfor %}
-                </div>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Youtube {% endblock %}
+{% block basecontent %}
+<link rel="stylesheet" href="{% static 'css\youtube.css' %}">
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="search">Enter your Search</label>
+        <input id="search" type="text" name="search" required>
+        <input type="submit" value="Search">
+    </form>
+    {% if videos %}
+        <div class="recommended_videos">
+            <h1 class="header">Search Results for "{{ videos.0.input }}"</h1> <!-- Display the search input -->
+            <div class="video-list">
+                {% for video in videos %}
+                <a href="{{video.link}}" class="video-item"  target="_blank">
+                    <div class="thumbnail">
+                        <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                    </div>
+                    <div class="video-details">
+                        <h2>{{ video.title }}</h2>
+                        <p>Duration: {{ video.duration }}</p>
+                        <p>Channel: {{ video.channel_name }}</p>
+                        <p>Views: {{ video.views }}</p>
+                        <p>Published Time: {{ video.time }}</p>
+                        <p>Description: {{ video.description }}</p>
+                    </div>
+                </a>
+                {% endfor %}
             </div>
-        {% endif %}
-    </div>    
-    {% endblock basecontent %}
-</body>
-</html>
+        </div>
+    {% endif %}
+</div>    
+{% endblock basecontent %}
