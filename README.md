@@ -2,6 +2,8 @@
 The Student Study Portal is a comprehensive web application designed to enhance students' academic experience by providing tools for organization, learning, and research. 
 It offers a user-friendly interface and a range of features tailored to support students in managing their study materials effectively.
 
+![Image about the final project](<Student Study Portal.png>)
+
 ## Description
 The Student Study Portal integrates key functionalities such as user authentication, note-taking, homework tracking, task management, and resource search capabilities. 
 Users can register and log in securely to access the portal's features, ensuring a personalized experience.
